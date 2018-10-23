@@ -71,7 +71,7 @@ print(resp.json())
 
 ## Websocker app - Architecture
 
-![arch](http://docs.maestroserver.io/en/latest/_images/client_arch.png)
+![arch](http://docs.maestroserver.io/en/latest/_images/arch_ws.png)
 
 
 ### Env variables ###
