@@ -17,7 +17,7 @@ See [Centrifugo project](https://centrifugal.github.io/centrifugo/ "Centrifugo P
 
 ``` bash
 # Generate config
-docker run maestro-websocket centrifugo genconfig
+docker run maestroserver/websocket-maestro centrifugo genconfig
 
 # Run websocket
 docker run -e MAESTRO_WEBSOCKET_SECRET='secret' -e MAESTRO_SECRETJWT='jwttoken' maestroserver/websocket-maestro
