@@ -8,7 +8,7 @@ VADSECRET=$CENTRIFUGO_ADMIN_SECRET
 VADMIN=${VADMIN:='-'}
 VADSECRET=${VADSECRET:='-'}
 
-CWPATH=".config.json"
+CWPATH="/config.json"
 
 jq -n\
  --arg secret $VSECRET\
@@ -29,8 +29,8 @@ fi
 
 if [ -z ${CENTRIFUGO_ADMIN} ] && [ -z ${CENTRIFUGO_ADMIN_SECRET} ]; 
     then 
-        centrifugo -c /config.json
+        centrifugo -c $CWPATH
     else
         echo "-> Centrifugo Admin UP";
-        centrifugo -c /config.json --admin
+        centrifugo -c $CWPATH --admin
 fi
