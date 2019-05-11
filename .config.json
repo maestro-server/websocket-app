@@ -1,0 +1,6 @@
+{
+  "secret": "defaultSecretKey",
+  "api_key": "wsSecretKey",
+  "admin_password": "-",
+  "admin_secret": "-"
+}
