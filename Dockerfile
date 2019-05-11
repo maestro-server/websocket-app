@@ -1,4 +1,4 @@
-FROM centrifugo/centrifugo:v2
+FROM centrifugo/centrifugo:v2.2.0
 MAINTAINER Felipe Signorini <felipe.signorini@maestroserver.io>
 
 RUN apk add --no-cache tini jq
