@@ -23,7 +23,7 @@ if [ -z ${CENTRIFUGO_TLS} ];
         echo "-> Tls disabled"
     else
         echo "-> Tls enabled"
-        TMPJ=$(jq '.tls_autocert=true | .tls_autocert_cache_dir = "\/tmp\/certs"' $CWPATH)
+        TMPJ=$(jq '.tls_autocert=true | .tls_autocert_cache_dir = "\/tmp\/certs" | .tls_autocert_http=true' $CWPATH)
         echo $TMPJ > $CWPATH
 fi
 
