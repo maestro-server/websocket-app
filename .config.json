@@ -3,8 +3,7 @@
   "api_key": "wsSecretKey",
   "admin_password": "-",
   "admin_secret": "-",
-  "tls_autocert": true,
-  "tls_autocert_cache_dir": "/tmp/certs",
-  "tls_autocert_http": true,
-  "tls_autocert_http_addr": 8000
+  "tls": true,
+  "tls_key": "/tmp/certs/server.key",
+  "tls_cert": "/tmp/certs/server.crt"
 }

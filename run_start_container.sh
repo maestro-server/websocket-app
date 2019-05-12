@@ -18,12 +18,21 @@ jq -n\
  '{"secret":$secret, "api_key":$api_key, "admin_password":$admin_password, "admin_secret":$admin_secret}' > $CWPATH
 
 
-if [ -z ${CENTRIFUGO_TLS} ];
+if [ -z ${CENTRIFUGO_TLSAUTO} ];
     then
-        echo "-> Tls disabled"
+        echo "-> TlsAuto disabled"
     else
-        echo "-> Tls enabled"
-        TMPJ=$(jq '.tls_autocert=true | .tls_autocert_cache_dir = "\/tmp\/certs" | .tls_autocert_http=true' $CWPATH)
+        echo "-> TlsAuto enabled"
+        TMPJ=$(jq '.tls_autocert=true | .tls_autocert_cache_dir = "\/tmp\/certs" | .tls_autocert_http=true ' $CWPATH)
+        echo $TMPJ > $CWPATH
+fi
+
+if [ -z ${CENTRIFUGO_DEVTLS} ];
+    then
+        echo "-> DevTls disabled"
+    else
+        echo "-> DevTls enabled"
+        TMPJ=$(jq '.tls=true | .tls_key="\/tmp\/certs\/server.key" | .tls_cert="\/tmp\/certs\/server.crt"' $CWPATH)
         echo $TMPJ > $CWPATH
 fi
 
