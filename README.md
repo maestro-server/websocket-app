@@ -39,7 +39,7 @@ centrifuge.subscribe("news", function(message) {
 centrifuge.connect();
 ```
 
-Backend Acess
+Backend Access
 ``` javascript
 import json
 import requests
@@ -82,7 +82,8 @@ print(resp.json())
 | MAESTRO_SECRETJWT         | frontSecretToken | Token to autheticate front end users     |
 | CENTRIFUGO_ADMIN          | adminPassword    | Admin password                           |
 | CENTRIFUGO_ADMIN_SECRET   | adminSecretToken | Token to autheticate administrator users |
-
+| CENTRIFUGO_TLSAUTO        | true             | Auto SSL using Let Encrypt               |
+| CENTRIFUGO_DEVTLS         | true             | Using dev ssl certs to run tls           |
 
 PS: Admin only will be enabled if Centrifugo admin and centrifugo admin secret it's setup. 
 
