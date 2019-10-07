@@ -7,6 +7,7 @@ VADMIN=$CENTRIFUGO_ADMIN
 VADSECRET=$CENTRIFUGO_ADMIN_SECRET
 VADMIN=${VADMIN:='-'}
 VADSECRET=${VADSECRET:='-'}
+TLSPORT=${CENTRIFUGO_TLS_PORT:='wsSecretKey'}
 
 CWPATH="/config.json"
 
@@ -23,7 +24,7 @@ if [ -z ${CENTRIFUGO_TLSAUTO} ];
         echo "-> TlsAuto disabled"
     else
         echo "-> TlsAuto enabled"
-        TMPJ=$(jq '.tls_autocert=true | .tls_autocert_cache_dir = "\/tmp\/certs" | .tls_autocert_http=true ' $CWPATH)
+        TMPJ=$(jq --arg port $CENTRIFUGO_TLS_PORT '.tls_autocert=true | .tls_autocert_cache_dir = "\/tmp\/certs" | .tls_autocert_http=true | .tls_autocert_http_addr=$port ' $CWPATH)
         echo $TMPJ > $CWPATH
 fi
 
