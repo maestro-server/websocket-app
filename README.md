@@ -76,15 +76,15 @@ print(resp.json())
 
 ### Env variables ###
 
-| Env Variables             | Example          | Description                                                      |
-|---------------------------|------------------|------------------------------------------------------------------|
-| MAESTRO_WEBSOCKET_SECRET  | backSecretToken  | Token to authenticate backends apps                              |
-| MAESTRO_SECRETJWT         | frontSecretToken | Token to autheticate front end users                             |
-| CENTRIFUGO_ADMIN          | adminPassword    | Admin password                                                   |
-| CENTRIFUGO_ADMIN_SECRET   | adminSecretToken | Token to autheticate administrator users                         |
-| CENTRIFUGO_TLSAUTO        | true             | Auto SSL using Let Encrypt                                       |
-| CENTRIFUGO_TLS_PORT       | :80              |  can be used to set address for handling http_01 ACME challenge |
-| CENTRIFUGO_DEVTLS         | true             | Using dev ssl certs to run tls                                   |
+| Env Variables             | Example          | Description                                                                            |
+|---------------------------|------------------|----------------------------------------------------------------------------------------|
+| MAESTRO_WEBSOCKET_SECRET  | backSecretToken  | Token to authenticate backends apps                                                    |
+| MAESTRO_SECRETJWT         | frontSecretToken | Token to autheticate front end users                                                   |
+| CENTRIFUGO_ADMIN          | adminPassword    | Admin password                                                                         |
+| CENTRIFUGO_ADMIN_SECRET   | adminSecretToken | Token to autheticate administrator users                                               |
+| CENTRIFUGO_TLSAUTO        | true             | Auto SSL using Let Encrypt                                                             |
+| CENTRIFUGO_TLS_PORT       | :80              | Can be used to set address for handling http_01 ACME challenge, default value is `:80` |
+| CENTRIFUGO_DEVTLS         | true             | Using dev ssl certs to run tls                                                         |
 
 PS: Admin only will be enabled if Centrifugo admin and centrifugo admin secret it's setup. 
 
