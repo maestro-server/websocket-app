@@ -83,6 +83,7 @@ print(resp.json())
 | CENTRIFUGO_ADMIN          | adminPassword    | Admin password                                                                         |
 | CENTRIFUGO_ADMIN_SECRET   | adminSecretToken | Token to autheticate administrator users                                               |
 | CENTRIFUGO_TLSAUTO        | true             | Auto SSL using Let Encrypt                                                             |
+| CENTRIFUGO_TLSAUTO_HTTP   | true             | Auto SSL using AcmeV1 Let Encrypt                                                      |
 | CENTRIFUGO_TLS_PORT       | :80              | Can be used to set address for handling http_01 ACME challenge, default value is `:80` |
 | CENTRIFUGO_DEVTLS         | true             | Using dev ssl certs to run tls                                                         |
 

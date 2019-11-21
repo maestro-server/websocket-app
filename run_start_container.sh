@@ -24,6 +24,15 @@ if [ -z ${CENTRIFUGO_TLSAUTO} ];
         echo "-> TlsAuto disabled"
     else
         echo "-> TlsAuto enabled"
+        TMPJ=$(jq '.tls_autocert=true | .tls_autocert_cache_dir = "\/tmp\/certs"' $CWPATH)
+        echo $TMPJ > $CWPATH
+fi
+
+if [ -z ${CENTRIFUGO_TLSAUTO_HTTP} ];
+    then
+        echo "-> TlsAuto HTTP Acmev1 disabled"
+    else
+        echo "-> TlsAuto HTTP Acmev1 enabled"
         TMPJ=$(jq --arg port $CENTRIFUGO_TLS_PORT '.tls_autocert=true | .tls_autocert_cache_dir = "\/tmp\/certs" | .tls_autocert_http=true | .tls_autocert_http_addr=$port ' $CWPATH)
         echo $TMPJ > $CWPATH
 fi
