@@ -7,7 +7,11 @@ VADMIN=$CENTRIFUGO_ADMIN
 VADSECRET=$CENTRIFUGO_ADMIN_SECRET
 VADMIN=${VADMIN:='-'}
 VADSECRET=${VADSECRET:='-'}
+
 TLSPORT=${CENTRIFUGO_TLS_PORT:=':80'}
+
+TLSKEY=${CENTRIFUGO_TLS_KEY:='"/tmp/certs/server.key"'}
+TLSCERT=${CENTRIFUGO_TLS_CERT:='"/tmp/certs/server.crt"'}
 
 CWPATH="/config.json"
 
@@ -33,16 +37,16 @@ if [ -z ${CENTRIFUGO_TLSAUTO_HTTP} ];
         echo "-> TlsAuto HTTP disabled"
     else
         echo "-> TlsAuto HTTP enabled"
-        TMPJ=$(jq --arg port $CENTRIFUGO_TLS_PORT '.tls_autocert=true | .tls_autocert_cache_dir = "\/tmp\/certs" | .tls_autocert_http=true | .tls_autocert_http_addr=$port ' $CWPATH)
+        TMPJ=$(jq --arg port $TLSPORT '.tls_autocert=true | .tls_autocert_cache_dir = "\/tmp\/certs" | .tls_autocert_http=true | .tls_autocert_http_addr=$port ' $CWPATH)
         echo $TMPJ > $CWPATH
 fi
 
-if [ -z ${CENTRIFUGO_DEVTLS} ];
+if [ -z ${CENTRIFUGO_TLS} ];
     then
-        echo "-> DevTls disabled"
+        echo "-> Custom TLS disabled"
     else
-        echo "-> DevTls enabled"
-        TMPJ=$(jq '.tls=true | .tls_key="\/tmp\/certs\/server.key" | .tls_cert="\/tmp\/certs\/server.crt"' $CWPATH)
+        echo "-> Custom TLS enabled"
+        TMPJ=$(jq ".tls=true | .tls_key=$TLSKEY | .tls_cert=$TLSCERT" $CWPATH)
         echo $TMPJ > $CWPATH
 fi
 

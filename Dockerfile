@@ -1,8 +1,6 @@
-FROM centrifugo/centrifugo:v2.2.4
-MAINTAINER Felipe Signorini <felipe.signorini@maestroserver.io>
+FROM centrifugo/centrifugo:v2.4
 
 RUN apk add --no-cache tini jq
-
 
 ADD ./devtools/pems/server.key /tmp/certs/server.key
 ADD ./devtools/pems/server.crt /tmp/certs/server.crt
