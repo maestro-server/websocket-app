@@ -8,7 +8,9 @@ To test out the demo, [Demo Online](http://demo.maestroserver.io "Demo Online")
 
 # Maestro Server - WebSocket App #
 
-It's websocket server with restfull hooks, maestro websocket use centrifugo project.
+Centrifugo server. It is a websocket + rest server, the websocket is used by client to get a real time notification, and the rest is used by internal maestro do send a notification to the client.
+
+* Client notification using websockets
 
 See [Centrifugo project](https://centrifugal.github.io/centrifugo/ "Centrifugo Project") 
                                                         |
